@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VELOUR - Thời Trang Cao Cấp</title>
+    <title>VELOUR - Thời Trang Hiện Đại</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -70,6 +70,17 @@
         }
         .nav-link:hover::after {
             width: 100%;
+        }
+
+        /* Dropdown Animation */
+        .group:hover .group-hover\:visible {
+            visibility: visible;
+        }
+        .group:hover .group-hover\:opacity-100 {
+            opacity: 100;
+        }
+        .group:hover .group-hover\:translate-y-0 {
+            transform: translateY(0);
         }
 
         /* Cart Sidebar Animation */
@@ -150,28 +161,57 @@
         </div>
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION (UPDATED PROFESSIONAL MENU) -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
+                <!-- Mobile Menu Button -->
                 <div class="flex items-center md:hidden">
                     <button id="mobile-menu-btn" class="text-gray-800 hover:text-black focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
 
+                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center justify-center flex-1 md:flex-none md:justify-start">
                     <a href="#" class="font-serif text-3xl font-bold tracking-widest uppercase">Velour</a>
                 </div>
 
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center justify-center flex-1">
-                    <a href="#home" class="nav-link text-sm uppercase tracking-widest hover:text-gray-600 transition">Trang chủ</a>
-                    <a href="#new-arrival" class="nav-link text-sm uppercase tracking-widest hover:text-gray-600 transition">Hàng mới</a>
-                    <a href="#collection" class="nav-link text-sm uppercase tracking-widest hover:text-gray-600 transition">Bộ sưu tập</a>
-                    <a href="#lookbook" class="nav-link text-sm uppercase tracking-widest hover:text-gray-600 transition">Lookbook</a>
-                    <a href="#contact" class="nav-link text-sm uppercase tracking-widest hover:text-gray-600 transition">Liên hệ</a>
+                    <a href="#home" class="nav-link text-xs lg:text-sm uppercase tracking-widest hover:text-gray-600 transition font-bold">Trang chủ</a>
+                    <a href="#new-arrival" class="nav-link text-xs lg:text-sm uppercase tracking-widest hover:text-gray-600 transition font-bold">Hàng mới</a>
+                    
+                    <!-- Dropdown Menu for Collection -->
+                    <div class="relative group h-20 flex items-center">
+                        <a href="#collection" class="nav-link text-xs lg:text-sm uppercase tracking-widest hover:text-gray-600 transition font-bold flex items-center gap-1 cursor-pointer">
+                            Bộ sưu tập <i class="fas fa-chevron-down text-[10px] opacity-70 mt-0.5"></i>
+                        </a>
+                        
+                        <!-- Dropdown Content -->
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-3 z-50">
+                            <div class="py-2">
+                                <a href="men_collection.html" class="block px-6 py-3 text-sm text-gray-600 hover:bg-black hover:text-white transition uppercase tracking-wider text-center border-b border-gray-50">
+                                    Nam Giới
+                                </a>
+                                <a href="#" class="block px-6 py-3 text-sm text-gray-600 hover:bg-black hover:text-white transition uppercase tracking-wider text-center border-b border-gray-50">
+                                    Phụ Nữ
+                                </a>
+                                <a href="#" class="block px-6 py-3 text-sm text-gray-600 hover:bg-black hover:text-white transition uppercase tracking-wider text-center border-b border-gray-50">
+                                    Phụ Kiện
+                                </a>
+                                <a href="#" class="block px-6 py-3 text-sm text-gray-600 hover:bg-black hover:text-white transition uppercase tracking-wider text-center">
+                                    Giày & Túi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#lookbook" class="nav-link text-xs lg:text-sm uppercase tracking-widest hover:text-gray-600 transition font-bold">Lookbook</a>
+                    <a href="#contact" class="nav-link text-xs lg:text-sm uppercase tracking-widest hover:text-gray-600 transition font-bold">Liên hệ</a>
                 </div>
 
+                <!-- Icons -->
                 <div class="flex items-center space-x-6">
                     <button id="search-btn" class="text-gray-800 hover:text-black transition"><i class="fas fa-search"></i></button>
                     <button id="cart-btn" class="text-gray-800 hover:text-black transition relative">
@@ -182,13 +222,21 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                <a href="#home" class="block px-3 py-2 text-base font-medium hover:bg-gray-50">Trang chủ</a>
-                <a href="#new-arrival" class="block px-3 py-2 text-base font-medium hover:bg-gray-50">Hàng mới</a>
-                <a href="#collection" class="block px-3 py-2 text-base font-medium hover:bg-gray-50">Bộ sưu tập</a>
-                <a href="#lookbook" class="block px-3 py-2 text-base font-medium hover:bg-gray-50">Lookbook</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium hover:bg-gray-50">Liên hệ</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full h-screen overflow-y-auto">
+            <div class="px-4 pt-4 pb-6 space-y-2 text-center">
+                <a href="#home" class="block px-3 py-3 text-base font-bold hover:bg-gray-50 uppercase border-b border-gray-100">Trang chủ</a>
+                <a href="#new-arrival" class="block px-3 py-3 text-base font-bold hover:bg-gray-50 uppercase border-b border-gray-100">Hàng mới</a>
+                
+                <div class="py-2 bg-gray-50 rounded-lg my-2">
+                    <p class="text-sm font-bold text-gray-400 uppercase mb-2">Bộ sưu tập</p>
+                    <a href="men_collection.html" class="block px-3 py-2 text-sm font-medium hover:text-black">Nam Giới</a>
+                    <a href="#" class="block px-3 py-2 text-sm font-medium hover:text-black">Phụ Nữ</a>
+                    <a href="#" class="block px-3 py-2 text-sm font-medium hover:text-black">Phụ Kiện</a>
+                </div>
+
+                <a href="#lookbook" class="block px-3 py-3 text-base font-bold hover:bg-gray-50 uppercase border-b border-gray-100">Lookbook</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-bold hover:bg-gray-50 uppercase">Liên hệ</a>
             </div>
         </div>
     </nav>
@@ -263,7 +311,7 @@
                 <a href="#collection" class="border border-white px-8 py-3 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition duration-300">Mua Sắm Ngay</a>
             </div>
         </div>
-        <!-- Slide 3 (New) -->
+        <!-- Slide 3 -->
         <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
             <div class="absolute inset-0 bg-black/20"></div>
             <div class="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
@@ -284,8 +332,8 @@
             <div class="w-16 h-0.5 bg-black mx-auto"></div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Category 1: Nam Giới (Updated Link) -->
-            <a href="men_collection.html" class="group relative h-96 overflow-hidden cursor-pointer block">
+            <!-- Category 1: Nam Giới (UPDATED LINK) -->
+            <a href="file:///C:/Users/DELL/Desktop/W-E-B/ThoitrangChauAU/nam%20gi%E1%BB%9Bi%20.html" class="group relative h-96 overflow-hidden cursor-pointer block">
                 <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Nam Giới" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition duration-300"></div>
                 <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center w-full">
@@ -296,7 +344,7 @@
 
             <!-- Category 2: Phụ Nữ -->
             <div class="group relative h-96 overflow-hidden cursor-pointer">
-                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Phụ Nữ" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
+                <img src="https://whitechic.vn/wp-content/uploads/2025/02/NMT_0216-2.jpg" alt="Phụ Nữ" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition duration-300"></div>
                 <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-center w-full">
                     <h3 class="text-white text-2xl font-serif mb-2">Phụ Nữ</h3>
@@ -357,15 +405,16 @@
             <div class="flex justify-between items-end mb-12">
                 <div>
                     <h2 class="font-serif text-3xl md:text-4xl mb-2">Sản Phẩm Mới</h2>
-                    <p class="text-gray-500 text-sm italic">Những thiết kế mới nhất mùa này</p>
+                    <p class="text-gray-500 text-sm italic">Những thiết kế mới nhất </p>
                 </div>
                 <a href="#" class="hidden md:block text-sm uppercase tracking-widest hover:text-gray-600 transition">Xem tất cả <i class="fas fa-arrow-right ml-2"></i></a>
             </div>
+
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Products 1-4 -->
+                <!-- Product 1 -->
                 <div class="group">
                     <div class="relative overflow-hidden mb-4">
-                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-[400px] object-cover">
+                        <img src="https://danviet.ex-cdn.com/files/f1/upload/4-2016/images/2016-12-11/148142120332735-h----ng---c-h--.jpg" class="w-full h-[400px] object-cover">
                         <button class="add-to-cart absolute bottom-0 w-full bg-black text-white py-3 translate-y-full group-hover:translate-y-0 transition duration-300 uppercase text-xs tracking-widest">Thêm vào giỏ</button>
                     </div>
                     <div class="text-center">
@@ -373,6 +422,8 @@
                         <p class="text-gray-500 mt-1">1.200.000₫</p>
                     </div>
                 </div>
+
+                <!-- Product 2 -->
                 <div class="group">
                     <div class="relative overflow-hidden mb-4">
                         <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-[400px] object-cover">
@@ -383,6 +434,8 @@
                         <p class="text-gray-500 mt-1">2.500.000₫</p>
                     </div>
                 </div>
+
+                <!-- Product 3 -->
                 <div class="group">
                     <div class="relative overflow-hidden mb-4">
                         <img src="https://images.unsplash.com/photo-1618932260643-eee4a2f652a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-[400px] object-cover">
@@ -393,6 +446,8 @@
                         <p class="text-gray-500 mt-1">950.000₫</p>
                     </div>
                 </div>
+
+                <!-- Product 4 -->
                 <div class="group">
                     <div class="relative overflow-hidden mb-4">
                         <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-[400px] object-cover">
@@ -403,8 +458,7 @@
                         <p class="text-gray-500 mt-1">1.800.000₫</p>
                     </div>
                 </div>
-
-                <!-- Products 5-8 (New) -->
+                 <!-- Products 5-8 (New) -->
                 <div class="group">
                     <div class="relative overflow-hidden mb-4">
                         <img src="https://images.unsplash.com/photo-1507680434567-5739c8a9753a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" class="w-full h-[400px] object-cover">
@@ -487,6 +541,10 @@
                         <p class="text-gray-500 mt-1">450.000₫</p>
                     </div>
                 </div>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                <a href="#" class="text-sm uppercase tracking-widest hover:text-gray-600 transition border-b border-black pb-1">Xem tất cả</a>
             </div>
         </div>
     </section>
@@ -827,7 +885,7 @@
             }
         });
 
-        // --- 7. AJAX FORM SUBMISSION & NOTIFICATION (New Feature) ---
+        // --- 7. AJAX FORM SUBMISSION & NOTIFICATION ---
         const contactForm = document.getElementById('contact-form');
         const toast = document.getElementById('toast-notification');
         const toastIcon = document.getElementById('toast-icon');
